@@ -34,7 +34,7 @@ cd card-request
 docker-compose up -d
 ```
 
-The Kafka web interface will be available at: http://localhost:8081
+The Kafka web interface will be available at: http://localhost:8080
 
 ### 3. Run the Microservices
 

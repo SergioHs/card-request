@@ -5,12 +5,14 @@ public class CartaoResponse {
     private String nome;
     private String status;
     private String bandeira; // null se negado
+    private Integer score;
 
-    public CartaoResponse(String cpf, String nome, String status, String bandeira) {
+    public CartaoResponse(String cpf, String nome, String status, String bandeira, Integer score) {
         this.cpf = cpf;
         this.nome = nome;
         this.status = status;
         this.bandeira = bandeira;
+        this.score = score;
     }
 
     public String getCpf() {
@@ -43,5 +45,9 @@ public class CartaoResponse {
 
     public void setBandeira(String bandeira) {
         this.bandeira = bandeira;
+    }
+
+    public Integer getScore() {
+        return score;
     }
 }

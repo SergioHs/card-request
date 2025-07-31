@@ -40,14 +40,15 @@ public class SolicitacaoService {
         try {
             scoreResp = future.get(5, TimeUnit.SECONDS);
         } catch (TimeoutException e) {
-            return new CartaoResponse(req.getCpf(), req.getNome(), "negado", null);
+            return new CartaoResponse(req.getCpf(), req.getNome(), "negado", null, 0);
         }
 
         if (scoreResp.getScore() < 400) {
-            return new CartaoResponse(req.getCpf(), req.getNome(), "negado", null);
+            return new CartaoResponse(req.getCpf(), req.getNome(), "negado", null, scoreResp.getScore());
         } else {
             String bandeira = bandeiraService.determinarBandeira(scoreResp.getScore());
-            return new CartaoResponse(req.getCpf(), req.getNome(), "aprovado", bandeira);
+            return new CartaoResponse(req.getCpf(), req.getNome(), "aprovado", bandeira, scoreResp.getScore());
         }
+
     }
 }

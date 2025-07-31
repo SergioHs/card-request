@@ -21,14 +21,14 @@ public class BandeiraService {
 
     @PostConstruct
     public void init() {
-        redisTemplate.opsForValue().set("bandeira:500-600", "master");
+        redisTemplate.opsForValue().set("bandeira:401-600", "master");
         redisTemplate.opsForValue().set("bandeira:600-700", "visa");
         redisTemplate.opsForValue().set("bandeira:700-800", "diners club");
         redisTemplate.opsForValue().set("bandeira:800-1000", "elo");
     }
 
     public String determinarBandeira(int score) {
-        if (score >= 500 && score < 600) return redisTemplate.opsForValue().get("bandeira:500-600");
+        if (score >= 401 && score < 600) return redisTemplate.opsForValue().get("bandeira:401-600");
         if (score >= 600 && score < 700) return redisTemplate.opsForValue().get("bandeira:600-700");
         if (score >= 700 && score < 800) return redisTemplate.opsForValue().get("bandeira:700-800");
         if (score >= 800 && score <= 1000) return redisTemplate.opsForValue().get("bandeira:800-1000");
